@@ -1,4 +1,4 @@
-var compteur =1;
+var compteur =0;
 (function(){
 
     var voy= function(){
@@ -10,9 +10,17 @@ var compteur =1;
     }
     $("#buttonvoyelle").click(function(){
         var voyelle=voy();
-        console.log(compteur);
-        $("#l"+compteur).html(voyelle);
         compteur++;
+        /*console.log(compteur);*/
+        $("#l"+compteur).html(voyelle);
+        $.ajax({
+            method: "GET",
+            url: "traitement.php",
+            data: { "lettre": voyelle}
+        })
+            .done(function(e) {
+                console.log("data " + e );
+            });
         if(compteur>9) {
             alert('Complet');
             document.getElementById("buttonvoyelle").setAttribute("disabled","disabled");
@@ -29,9 +37,17 @@ var compteur =1;
     }
     $("#buttonconsonne").click(function(){
         var consonne=cons();
-        console.log(compteur);
-        $("#l"+compteur).html(consonne);
         compteur++;
+        /*console.log(compteur);*/
+        $("#l"+compteur).html(consonne);
+        $.ajax({
+            method: "GET",
+            url: "traitement.php",
+            data: { "lettre": consonne}
+        })
+            .done(function(e) {
+                console.log("data " + e );
+            });
         if(compteur>9) {
             alert('Complet');
             document.getElementById("buttonvoyelle").setAttribute("disabled","disabled");

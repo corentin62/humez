@@ -1,12 +1,13 @@
 <?php // Déclaration des différentes variables utiles à la connexion
-$serveur = "172.29.20.218";
+$serveur = "localhost";
 $base = 'jeulettre';
  $utilisateur = 'root';
- $motDePasse = '';
+ $motDePasse = 'root';
 
 // création d'une connexion
 try { $dns = "mysql:host=$serveur;dbname=$base";
 $conn = new PDO( $dns, $utilisateur, $motDePasse );
+echo "okkkkk";
 }
 catch ( Exception $e )
 {
