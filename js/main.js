@@ -63,7 +63,10 @@ var compteur =0;
 
     $(".lettre").click(function(){
      alert('coco')
+            $("#Reponse" + j).show("slow").html(this.textContent);
 
     })
+
+
 
 })();
